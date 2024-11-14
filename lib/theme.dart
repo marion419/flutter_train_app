@@ -5,7 +5,7 @@ final lightTheme=ThemeData(
     seedColor: Colors.purple,
     brightness: Brightness.light,
   ),
-  dividerColor: Colors.black,
+  dividerColor: Colors.white,
   highlightColor: Colors.purple,
 
   elevatedButtonTheme: ElevatedButtonThemeData(
