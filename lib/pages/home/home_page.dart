@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/theme.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -24,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                color: Theme.of(context).highlightColor,
               ),
             ),
           )
