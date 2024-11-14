@@ -104,7 +104,8 @@ class SelectStation extends StatelessWidget {
                 },
                 child: Text('선택',
                   style: TextStyle(
-                    fontSize: 40
+                    fontSize: 40,
+                    color: Colors.black
                   ),
                 ),
               ),
