@@ -15,6 +15,21 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Text('기차 예매'),
       ),
+      body: Column(
+        children: [
+          SizedBox(height: 200),
+          Center(
+            child: Container(
+              width: 200,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
   
