@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/theme.dart';
+import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -95,9 +96,16 @@ class SelectStation extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),),
-              Text('선택',
-                style: TextStyle(
-                  fontSize: 40
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return StationListPage(direction);
+                  },));
+                },
+                child: Text('선택',
+                  style: TextStyle(
+                    fontSize: 40
+                  ),
                 ),
               ),
             ],
