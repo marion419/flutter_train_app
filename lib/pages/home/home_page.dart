@@ -19,64 +19,34 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Text('기차 예매'),
       ),
+
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
+            //상부 여백
             SizedBox(height: 100),
             Center(
+              // 출발역과 도착역을 나타내는 박스
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
                 ),
+
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                      height: 200,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('출발역',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),),
-                          Text('선택',
-                            style: TextStyle(
-                              fontSize: 40
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    SelectStation('출발역'),
+                    // 세로 구분선
                     Container(
                       color: Colors.grey[400],
                       width: 2,
                       height: 50,
                     ),
-                    SizedBox(
-                      height: 200,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('도착역',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),),
-                          Text('선택',
-                            style: TextStyle(
-                              fontSize: 40
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // 도착역 선택
+                    SelectStation('도착역'),
                   ],
                 ),
               ),
@@ -101,4 +71,39 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
   
+}
+
+class SelectStation extends StatelessWidget {
+
+  SelectStation(this.direction);
+  String direction;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      // 출발역 선택
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              Text(direction,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),),
+              Text('선택',
+                style: TextStyle(
+                  fontSize: 40
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
