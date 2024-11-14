@@ -16,7 +16,7 @@ final lightTheme=ThemeData(
         ),
       ),
       backgroundColor: WidgetStatePropertyAll(Colors.purple),
-      foregroundColor: WidgetStatePropertyAll(Colors.black),
+      foregroundColor: WidgetStatePropertyAll(Colors.white),
     ),
   ),
 );
