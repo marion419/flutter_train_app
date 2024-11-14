@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home/home_page.dart';
+import 'package:flutter_train_app/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Train App',
-      theme: ThemeData(
-      ),
+      themeMode: ThemeMode.light,
+      theme: lightTheme,
       home: const MyHomePage(),
     );
   }
