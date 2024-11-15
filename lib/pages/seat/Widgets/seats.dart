@@ -13,25 +13,30 @@ class _SeatsState extends State<Seats>{
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: isPressed ? Theme.of(context).highlightColor : Colors.grey[300]!
+        Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: isPressed ? Theme.of(context).highlightColor : Colors.grey[300]!
           ),
-          onPressed: (){
-            if(isPressed){
-              setState(() {
-                isPressed=false;
-              });
-            }
-            else{
-              setState(() {
-                isPressed=true;
-              });
-            }
-          },
-          child: 
-            Text('')
-          ,
+          child: TextButton(
+            onPressed: (){
+              if(isPressed){
+                setState(() {
+                  isPressed=false;
+                });
+              }
+              else{
+                setState(() {
+                  isPressed=true;
+                });
+              }
+            },
+            child: 
+              Text('')
+            ,
+          ),
         ),
         SizedBox(width: 4,),
         Container(
