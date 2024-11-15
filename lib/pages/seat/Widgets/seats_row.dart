@@ -10,25 +10,35 @@ class SeatsRow extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SeatsButton(),
-        SizedBox(width: 4,),
-        SeatsButton(),
-        SizedBox(
-          width: 50,
-          height: 50,
-          child: 
-          Text('$rowNum',
-            style: TextStyle(
-              fontSize: 18
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SeatsButton(),
+          SizedBox(width: 4,),
+          SeatsButton(),
+          SizedBox(
+            width: 50,
+            height: 50,
+            child: 
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('$rowNum',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
-        ),
-        SeatsButton(),
-        SizedBox(width: 4,),
-        SeatsButton(),
-      ],
+          SeatsButton(),
+          SizedBox(width: 4,),
+          SeatsButton(),
+        ],
+      ),
     );
   }
 }

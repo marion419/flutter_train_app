@@ -2,6 +2,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/pages/seat/Widgets/seats_row.dart';
+import 'package:flutter_train_app/pages/seat/Widgets/column_name.dart';
+
 
 class SeatPage extends StatefulWidget{
   @override
@@ -63,13 +66,36 @@ class _SeatPageState extends State<SeatPage> {
                   color: Colors.grey[300]!,
                 ),
               ),
+              SizedBox(width: 4,),
               Text('선택 안 됨'),
             ],
-          )
+          ),
           // 행번호
-
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ColumnName('A'),
+                SizedBox(width: 4,),
+                ColumnName('B'),
+                SizedBox(width: 50, height: 50,),
+                ColumnName('C'),
+                SizedBox(width: 4,),
+                ColumnName('D'),
+              ],
+            ),
+          ),
           // 좌석 리스트뷰
-
+          Column(
+            children: [
+              SeatsRow(1),
+              SeatsRow(2),
+              SeatsRow(3),
+              SeatsRow(4),
+              SeatsRow(5),
+            ],
+          )
           // 예매하기 버튼
 
         ],
@@ -77,3 +103,4 @@ class _SeatPageState extends State<SeatPage> {
     );
   }
 }
+
