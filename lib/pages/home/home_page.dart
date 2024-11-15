@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/seat/seat_page.dart';
 import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
+import 'package:flutter_train_app/pages/home/Widgets/select_depart.dart';
+import 'package:flutter_train_app/pages/home/Widgets/select_arrive.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -53,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    selectDepart('출발역', depart),
+                    SelectDepart('출발역', depart, onDepartChanged),
                     // 세로 구분선
                     Container(
                       color: Colors.grey[400],
@@ -61,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 50,
                     ),
                     // 도착역 선택
-                    selectArrive('도착역', arrive),
+                    SelectArrive('도착역', arrive, onArriveChanged),
                   ],
                 ),
               ),
@@ -88,78 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget selectDepart(String direction, String station) {
-    return SizedBox(
-      height: 200,
-      // 출발역 선택
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(
-            children: [
-              Text(direction,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),),
-              TextButton(
-                onPressed: () async {
-                  final returnStation = await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => StationListPage(direction: direction, station: station,))
-                  );
-                  onDepartChanged(returnStation);
-                },
-                child: Text(station,
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.black
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget selectArrive(String direction, String station) {
-    return SizedBox(
-      height: 200,
-      // 출발역 선택
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(
-            children: [
-              Text(direction,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),),
-              TextButton(
-                onPressed: () async {
-                  final returnStation = await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => StationListPage(direction: direction, station: station,))
-                  );
-                  onArriveChanged(returnStation);
-                },
-                child: Text(station,
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.black
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }
