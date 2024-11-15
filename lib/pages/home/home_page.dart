@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_train_app/theme.dart';
 import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,6 +11,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  String depart='선택';
+  String arrive='선택';
+  void onDepartChanged(String newDepart){
+    setState(() {
+      depart=newDepart;
+    });
+  }
+  void onArriveChanged(String newArrive){
+    setState(() {
+      arrive=newArrive;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SelectStation('출발역'),
+                    selectDepart('출발역', depart),
                     // 세로 구분선
                     Container(
                       color: Colors.grey[400],
@@ -47,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 50,
                     ),
                     // 도착역 선택
-                    SelectStation('도착역'),
+                    selectArrive('도착역', arrive),
                   ],
                 ),
               ),
@@ -71,17 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-  
-}
 
-class SelectStation extends StatelessWidget {
-
-  SelectStation(this.direction);
-  String direction;
-
-
-  @override
-  Widget build(BuildContext context) {
+  Widget selectDepart(String direction, String station) {
     return SizedBox(
       height: 200,
       // 출발역 선택
@@ -97,12 +101,49 @@ class SelectStation extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),),
               TextButton(
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return StationListPage(direction);
-                  },));
+                onPressed: () async {
+                  final returnStation = await Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => StationListPage(direction: direction, station: station,))
+                  );
+                  onDepartChanged(returnStation);
                 },
-                child: Text('선택',
+                child: Text(station,
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.black
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget selectArrive(String direction, String station) {
+    return SizedBox(
+      height: 200,
+      // 출발역 선택
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              Text(direction,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),),
+              TextButton(
+                onPressed: () async {
+                  final returnStation = await Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => StationListPage(direction: direction, station: station,))
+                  );
+                  onArriveChanged(returnStation);
+                },
+                child: Text(station,
                   style: TextStyle(
                     fontSize: 40,
                     color: Colors.black
@@ -116,3 +157,4 @@ class SelectStation extends StatelessWidget {
     );
   }
 }
+
