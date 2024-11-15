@@ -13,5 +13,4 @@ class _SeatPageState extends State<SeatPage> {
   Widget build(BuildContext context) {
     return Text('seatPage');
   }
-
 }
