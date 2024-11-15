@@ -1,14 +1,16 @@
+
 import 'package:flutter/material.dart';
 
-class Seats extends StatefulWidget {
-  const Seats({super.key});
+class SeatsButton extends StatefulWidget {
+  const SeatsButton({super.key});
 
   @override
-  State<Seats> createState() => _SeatsState();
+  State<SeatsButton> createState() => _SeatsButtonState();
 }
 
-class _SeatsState extends State<Seats>{
+class _SeatsButtonState extends State<SeatsButton>{
   bool isPressed=false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
