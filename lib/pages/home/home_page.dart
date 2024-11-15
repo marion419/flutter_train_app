@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/pages/seat/seat_page.dart';
 import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -69,7 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: (){}, 
+                onPressed: (){
+                  if(depart!='선택'&&arrive!='선택'){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return SeatPage();
+                    }));
+                  }
+                }, 
                 child: 
                   Text('좌석 선택',
                     style: TextStyle(
