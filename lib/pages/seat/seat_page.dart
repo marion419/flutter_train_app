@@ -7,6 +7,10 @@ import 'package:flutter_train_app/pages/seat/Widgets/column_name.dart';
 
 
 class SeatPage extends StatefulWidget{
+  String depart;
+  String arrive;
+  SeatPage(this.depart, this.arrive);
+  
   @override
   State<SeatPage> createState() => _SeatPageState();
 }
@@ -25,7 +29,7 @@ class _SeatPageState extends State<SeatPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('출발역',
+              Text(widget.depart,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -33,7 +37,7 @@ class _SeatPageState extends State<SeatPage> {
                 ),
               ),
               Icon(Icons.arrow_circle_right_outlined, size: 30,),
-              Text('도착역',
+              Text(widget.arrive,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,

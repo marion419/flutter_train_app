@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: (){
                   if(depart!='선택'&&arrive!='선택'){
                     Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return SeatPage();
+                      return SeatPage(depart, arrive);
                     }));
                   }
                 }, 
