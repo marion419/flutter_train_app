@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/pages/payment/payment_page.dart';
 import 'package:flutter_train_app/pages/seat/Widgets/seats_row.dart';
 import 'package:flutter_train_app/pages/seat/Widgets/column_name.dart';
 
@@ -124,7 +125,7 @@ class _SeatPageState extends State<SeatPage> {
             child: ElevatedButton(
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return Text('a');
+                  return PaymentPage();
                 }));
               }, 
               child: Text('예매하기')
