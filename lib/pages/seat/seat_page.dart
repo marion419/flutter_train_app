@@ -131,7 +131,12 @@ class _SeatPageState extends State<SeatPage> {
                     return PaymentPage();
                   }));
                 }, 
-                child: Text('예매하기')
+                child: Text('예매하기',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                  ),
+                )
               ),
             )
           ],
