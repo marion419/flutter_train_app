@@ -91,14 +91,33 @@ class _SeatPageState extends State<SeatPage> {
             ),
           ),
           // 좌석 리스트뷰
-          Column(
-            children: [
-              SeatsRow(1),
-              SeatsRow(2),
-              SeatsRow(3),
-              SeatsRow(4),
-              SeatsRow(5),
-            ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SeatsRow(1),
+                  SeatsRow(2),
+                  SeatsRow(3),
+                  SeatsRow(4),
+                  SeatsRow(5),
+                  SeatsRow(6),
+                  SeatsRow(7),
+                  SeatsRow(8),
+                  SeatsRow(9),
+                  SeatsRow(10),
+                  SeatsRow(11),
+                  SeatsRow(12),
+                  SeatsRow(13),
+                  SeatsRow(14),
+                  SeatsRow(15),
+                  SeatsRow(16),
+                  SeatsRow(17),
+                  SeatsRow(18),
+                  SeatsRow(19),
+                  SeatsRow(20),
+                ],
+              ),
+            ),
           )
           // 예매하기 버튼
 
