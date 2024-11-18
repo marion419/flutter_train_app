@@ -52,19 +52,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                 ),
 
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SelectDepart('출발역', depart, onDepartChanged),
-                    // 세로 구분선
-                    Container(
-                      color: Colors.grey[400],
-                      width: 2,
-                      height: 50,
-                    ),
-                    // 도착역 선택
-                    SelectArrive('도착역', arrive, onArriveChanged),
-                  ],
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SelectDepart('출발역', depart, onDepartChanged),
+                      // 세로 구분선
+                      Container(
+                        color: Colors.grey[400],
+                        width: 2,
+                        height: 50,
+                      ),
+                      // 도착역 선택
+                      SelectArrive('도착역', arrive, onArriveChanged),
+                    ],
+                  ),
                 ),
               ),
             ),
