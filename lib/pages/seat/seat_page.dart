@@ -118,9 +118,18 @@ class _SeatPageState extends State<SeatPage> {
                 ],
               ),
             ),
-          )
+          ),
           // 예매하기 버튼
-
+          SizedBox(
+            child: ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return Text('a');
+                }));
+              }, 
+              child: Text('예매하기')
+            ),
+          )
         ],
       ),
     );
