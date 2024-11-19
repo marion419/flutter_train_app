@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class SeatsButton extends StatefulWidget {
   String seatNum;
-  SeatsButton(this.seatNum);
+  List<String> selectedSeat;
+  SeatsButton(this.seatNum, this.selectedSeat);
 
   @override
   State<SeatsButton> createState() => _SeatsButtonState();
@@ -26,11 +27,13 @@ class _SeatsButtonState extends State<SeatsButton>{
           if(isPressed){
             setState(() {
               isPressed=false;
+              widget.selectedSeat.remove(widget.seatNum);
             });
           }
           else{
             setState(() {
               isPressed=true;
+              widget.selectedSeat.add(widget.seatNum);
             });
           }
         },

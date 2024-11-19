@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 
 class PaymentPage extends StatelessWidget{
   List<String> items =
-      <String>["수서","동탄","평택지제","천안아산","오송","대전","김천구미","동대구","경주","울산","부산"];
+      ["수서","동탄","평택지제","천안아산","오송","대전","김천구미","동대구","경주","울산","부산"];
 
+  List<String> selectedSeat=[];
   String depart;
   String arrive;
-  int? cost;
+  int cost=0;
 
-  PaymentPage({required this.depart, required this.arrive}){
+  PaymentPage({required this.depart, required this.arrive, required this.selectedSeat}){
     cost=15000+1000*(items.indexOf(depart)-items.indexOf(arrive)).abs();
+    cost=cost*selectedSeat.length;
   }
 
   @override

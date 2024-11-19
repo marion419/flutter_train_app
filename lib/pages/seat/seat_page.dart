@@ -1,9 +1,11 @@
 
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/payment/payment_page.dart';
 import 'package:flutter_train_app/pages/seat/Widgets/seats_row.dart';
+import 'package:flutter_train_app/pages/seat/Widgets/seats_button.dart';
 import 'package:flutter_train_app/pages/seat/Widgets/column_name.dart';
 
 
@@ -12,19 +14,39 @@ class SeatPage extends StatefulWidget{
   String arrive;
   SeatPage(this.depart, this.arrive);
   List<String> selectedSeat=[];
+  int seatCount=0;
   
   @override
   State<SeatPage> createState() => _SeatPageState();
 }
 
 class _SeatPageState extends State<SeatPage> {
-
-  void addSeat(seatNum){
-    widget.selectedSeat.add(seatNum);
-  }
-
+  bool isPressed=true;
   @override
   Widget build(BuildContext context) {
+    // CupertinoAlertDialog(
+    //   title: Text('예매 하시겠습니까?'),
+    //   content: Text('좌석 :'),
+    //   actions: <CupertinoDialogAction>[
+    //     CupertinoDialogAction(
+    //       // isDefaultAction
+    //       // 작업의 기본 값
+    //       // 텍스트 색상을 파란색으로, 굵게 표시
+    //       isDefaultAction: true,
+    //       onPressed: () => Navigator.pop(context),
+    //       child: const Text('No'),
+    //     ),
+    //     CupertinoDialogAction(
+    //       // isDestructiveAction
+    //       // 작업 수행, 삭제 및 전환과 같은 파괴적인 작업
+    //       // 텍스트 색상을 빨간색으로 지정
+    //       isDestructiveAction: true,
+    //       onPressed: () => Navigator.pop(context),
+    //       child: const Text('Yes'),
+    //     ),
+    //   ],
+    // );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('좌석 선택',
@@ -112,16 +134,51 @@ class _SeatPageState extends State<SeatPage> {
                 ],
               ),
             ),
-            // 좌석
+            // 좌석 스크롤뷰
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SeatsRow(1, addSeat),
-                    SeatsRow(2, addSeat),
-                    SeatsRow(3, addSeat),
-                    SeatsRow(4, addSeat),
-                    SeatsRow(5, addSeat),
+                    SeatsRow(1, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(2, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(3, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(4, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(5, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(6, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(7, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(8, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(9, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(10, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(11, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(12, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(13, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(14, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(15, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(16, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(17, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(18, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(19, widget.selectedSeat),
+                    SizedBox(height: 4,),
+                    SeatsRow(20, widget.selectedSeat),
+                    SizedBox(height: 4,),
                   ],
                 ),
               ),
@@ -131,9 +188,38 @@ class _SeatPageState extends State<SeatPage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return PaymentPage(depart: widget.depart, arrive: widget.arrive);
-                  }));
+                  if(widget.selectedSeat.isNotEmpty){
+                    showCupertinoDialog(context: context, 
+                      barrierDismissible: true,
+                      builder: (context) => CupertinoAlertDialog(
+                        title: Text('예매 하시겠습니까?'),
+                        content: widget.selectedSeat.length==1 ? Text('좌석 : ${widget.selectedSeat[0]}') 
+                        : Text('좌석 : ${widget.selectedSeat[0]} 외 ${widget.selectedSeat.length-1}') ,
+                        actions: <CupertinoDialogAction>[
+                          CupertinoDialogAction(
+                            isDestructiveAction: true,
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
+                            child: Text('취소')
+                          ),
+                          CupertinoDialogAction(
+                            isDefaultAction: true,
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return PaymentPage(depart: widget.depart, arrive: widget.arrive, selectedSeat: widget.selectedSeat,);
+                              }));
+                            },
+                            child: Text('확인',
+                              style: TextStyle(
+                                color: Colors.blue
+                              ),
+                            )
+                          )
+                        ],
+                      )
+                    );
+                  }
                 }, 
                 child: Text('예매하기',
                   style: TextStyle(
