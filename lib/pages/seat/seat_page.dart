@@ -141,7 +141,7 @@ class _SeatPageState extends State<SeatPage> {
               child: ElevatedButton(
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return PaymentPage();
+                    return PaymentPage(depart: widget.depart, arrive: widget.arrive);
                   }));
                 }, 
                 child: Text('예매하기',
