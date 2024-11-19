@@ -30,7 +30,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         centerTitle: true,
         title: Text('기차 예매'),
@@ -39,16 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //상부 여백
-            SizedBox(height: 100),
             Center(
               // 출발역과 도착역을 나타내는 박스
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                 ),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,

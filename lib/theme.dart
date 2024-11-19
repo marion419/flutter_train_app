@@ -5,7 +5,8 @@ final lightTheme=ThemeData(
     seedColor: Colors.purple,
     brightness: Brightness.light,
   ),
-  dividerColor: Colors.white,
+  primaryColor: Colors.white,
+  dividerColor: Colors.grey[300]!,
   highlightColor: Colors.purple,
 
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -22,12 +23,12 @@ final lightTheme=ThemeData(
 );
 
 final darkTheme=ThemeData(
-  scaffoldBackgroundColor: Colors.black,
   colorScheme: ColorScheme.fromSeed(
     seedColor: Colors.purple,
     brightness: Brightness.dark,
   ),
-  dividerColor: Colors.white,
+  primaryColor: Colors.grey[500],
+  dividerColor: Colors.grey[500],
   highlightColor: Colors.purple,
 
   elevatedButtonTheme: ElevatedButtonThemeData(
