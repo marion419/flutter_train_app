@@ -34,7 +34,7 @@ class SelectDepart extends StatelessWidget{
                 },
                 child: Text(station,
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 35,
                     color: Colors.black
                   ),
                 ),

@@ -48,22 +48,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   borderRadius: BorderRadius.circular(20),
                   color: Theme.of(context).primaryColor,
                 ),
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SelectDepart('출발역', depart, arrive, onDepartChanged),
-                      // 세로 구분선
-                      Container(
-                        color: Colors.grey[400],
-                        width: 2,
-                        height: 50,
-                      ),
-                      // 도착역 선택
-                      SelectArrive('도착역', arrive, depart, onArriveChanged),
-                    ],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SelectDepart('출발역', depart, arrive, onDepartChanged),
+                    // 세로 구분선
+                    Container(
+                      color: Colors.grey[400],
+                      width: 2,
+                      height: 50,
+                    ),
+                    // 도착역 선택
+                    SelectArrive('도착역', arrive, depart, onArriveChanged),
+                  ],
                 ),
               ),
             ),
