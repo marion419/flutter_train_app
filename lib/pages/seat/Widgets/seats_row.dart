@@ -16,9 +16,9 @@ class SeatsRow extends StatelessWidget{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SeatsButton('A$rowNum', selectedSeat),
+          SeatsButton('$rowNum-A', selectedSeat),
           SizedBox(width: 4,),
-          SeatsButton('B$rowNum', selectedSeat),
+          SeatsButton('$rowNum-B', selectedSeat),
           SizedBox(
             width: 50,
             height: 50,
@@ -36,9 +36,9 @@ class SeatsRow extends StatelessWidget{
               ],
             ),
           ),
-          SeatsButton('C$rowNum', selectedSeat),
+          SeatsButton('$rowNum-C', selectedSeat),
           SizedBox(width: 4,),
-          SeatsButton('D$rowNum', selectedSeat),
+          SeatsButton('$rowNum-D', selectedSeat),
         ],
       ),
     );
