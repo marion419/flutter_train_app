@@ -194,7 +194,7 @@ class _SeatPageState extends State<SeatPage> {
                       builder: (context) => CupertinoAlertDialog(
                         title: Text('예매 하시겠습니까?'),
                         content: widget.selectedSeat.length==1 ? Text('좌석 : ${widget.selectedSeat[0]}') 
-                        : Text('좌석 : ${widget.selectedSeat[0]} 외 ${widget.selectedSeat.length-1}') ,
+                        : Text('좌석 : ${widget.selectedSeat[0]} 외 ${widget.selectedSeat.length-1}석') ,
                         actions: <CupertinoDialogAction>[
                           CupertinoDialogAction(
                             isDestructiveAction: true,

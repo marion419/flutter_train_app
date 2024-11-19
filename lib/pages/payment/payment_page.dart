@@ -42,52 +42,74 @@ class PaymentPage extends StatelessWidget{
               ),
               width: double.infinity,
               height: 200,
-              child: Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // 출발역
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('출발역',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold
-                        ),
+                      // 출발역
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('출발역',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                          Text(depart,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.tertiary,
+                              fontSize: 35
+                            ),
+                          )
+                        ],
                       ),
-                      Text(depart,
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.tertiary,
-                          fontSize: 35
-                        ),
+                      // 세로 구분선
+                      Container(
+                        color: Colors.grey[400],
+                        width: 2,
+                        height: 50,
+                      ),
+                      // 도착역
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('도착역',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                          Text(arrive,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.tertiary,
+                              fontSize: 35
+                            ),
+                          )
+                        ],
                       )
                     ],
                   ),
-                  // 세로 구분선
-                  Container(
-                    color: Colors.grey[400],
-                    width: 2,
-                    height: 50,
-                  ),
-                  // 도착역
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('도착역',
+                  SizedBox(
+                    child: selectedSeat.length==1 ? 
+                      Text('좌석 : ${selectedSeat[0]}',
                         style: TextStyle(
-                          color: Colors.grey,
+                          color: Theme.of(context).colorScheme.tertiary,
                           fontSize: 16,
                           fontWeight: FontWeight.bold
                         ),
-                      ),
-                      Text(arrive,
+                      ) 
+                      : Text('좌석 : ${selectedSeat[0]} 외 ${selectedSeat.length-1}석',
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.tertiary,
-                          fontSize: 35
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
                         ),
-                      )
-                    ],
+                      ) ,
                   )
                 ],
               ),
