@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class SeatsButton extends StatefulWidget {
-  const SeatsButton({super.key});
+  String seatNum;
+  SeatsButton(this.seatNum);
 
   @override
   State<SeatsButton> createState() => _SeatsButtonState();

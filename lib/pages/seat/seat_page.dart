@@ -11,12 +11,18 @@ class SeatPage extends StatefulWidget{
   String depart;
   String arrive;
   SeatPage(this.depart, this.arrive);
+  List<String> selectedSeat=[];
   
   @override
   State<SeatPage> createState() => _SeatPageState();
 }
 
 class _SeatPageState extends State<SeatPage> {
+
+  void addSeat(seatNum){
+    widget.selectedSeat.add(seatNum);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,31 +112,16 @@ class _SeatPageState extends State<SeatPage> {
                 ],
               ),
             ),
-            // 좌석 리스트뷰
+            // 좌석
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SeatsRow(1),
-                    SeatsRow(2),
-                    SeatsRow(3),
-                    SeatsRow(4),
-                    SeatsRow(5),
-                    SeatsRow(6),
-                    SeatsRow(7),
-                    SeatsRow(8),
-                    SeatsRow(9),
-                    SeatsRow(10),
-                    SeatsRow(11),
-                    SeatsRow(12),
-                    SeatsRow(13),
-                    SeatsRow(14),
-                    SeatsRow(15),
-                    SeatsRow(16),
-                    SeatsRow(17),
-                    SeatsRow(18),
-                    SeatsRow(19),
-                    SeatsRow(20),
+                    SeatsRow(1, addSeat),
+                    SeatsRow(2, addSeat),
+                    SeatsRow(3, addSeat),
+                    SeatsRow(4, addSeat),
+                    SeatsRow(5, addSeat),
                   ],
                 ),
               ),

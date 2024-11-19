@@ -5,8 +5,9 @@ import 'package:flutter_train_app/pages/seat/Widgets/seats_button.dart';
 class SeatsRow extends StatelessWidget{
   bool isPressed=false;
   int rowNum;
+  void Function(String seatNum) addSeat;
 
-  SeatsRow(this.rowNum);
+  SeatsRow(this.rowNum, this.addSeat);
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,9 @@ class SeatsRow extends StatelessWidget{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SeatsButton(),
+          SeatsButton('A$rowNum'),
           SizedBox(width: 4,),
-          SeatsButton(),
+          SeatsButton('B$rowNum'),
           SizedBox(
             width: 50,
             height: 50,
@@ -35,9 +36,9 @@ class SeatsRow extends StatelessWidget{
               ],
             ),
           ),
-          SeatsButton(),
+          SeatsButton('C$rowNum'),
           SizedBox(width: 4,),
-          SeatsButton(),
+          SeatsButton('D$rowNum'),
         ],
       ),
     );
