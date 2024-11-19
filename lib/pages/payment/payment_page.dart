@@ -4,15 +4,22 @@
 import 'package:flutter/material.dart';
 
 class PaymentPage extends StatelessWidget{
+  List<String> items =
+      <String>["수서","동탄","평택지제","천안아산","오송","대전","김천구미","동대구","경주","울산","부산"];
+
   String depart;
   String arrive;
+  int? cost;
 
-  PaymentPage({required this.depart, required this.arrive});
+  PaymentPage({required this.depart, required this.arrive}){
+    cost=15000+1000*(items.indexOf(depart)-items.indexOf(arrive)).abs();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('결제',
           style: TextStyle(
             color: Theme.of(context).colorScheme.tertiary
@@ -25,6 +32,7 @@ class PaymentPage extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // 출발역, 도착역 표시 박스
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -33,12 +41,71 @@ class PaymentPage extends StatelessWidget{
               width: double.infinity,
               height: 200,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(depart),
-                  Text(arrive)
+                  // 출발역
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('출발역',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Text(depart,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.tertiary,
+                          fontSize: 35
+                        ),
+                      )
+                    ],
+                  ),
+                  // 세로 구분선
+                  Container(
+                    color: Colors.grey[400],
+                    width: 2,
+                    height: 50,
+                  ),
+                  // 도착역
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('도착역',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Text(arrive,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.tertiary,
+                          fontSize: 35
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
-            )
+            ),
+            SizedBox(height: 20,),
+            // 결제 버튼
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: (){
+                }, 
+                child: 
+                  Text('$cost원 결제하기',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+              ),
+            ),
           ],
         ),
       ),
