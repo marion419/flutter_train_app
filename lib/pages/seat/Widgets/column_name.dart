@@ -15,7 +15,8 @@ class ColumnName extends StatelessWidget {
         children: [
           Text(name,
             style: TextStyle(
-              fontSize: 18
+              fontSize: 18,
+              color: Theme.of(context).colorScheme.tertiary
             ),
             textAlign: TextAlign.center,
           ),

@@ -19,13 +19,22 @@ class StationListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(direction),
+        title: Text(direction,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.tertiary
+          ),
+        ),
+        backgroundColor: Colors.transparent,
       ),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(items[index]),
+            title: Text(items[index],
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+            ),
             onTap: () {
               Navigator.pop(context, items[index]);
             },

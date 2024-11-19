@@ -38,7 +38,7 @@ class SelectArrive extends StatelessWidget{
                     style: TextStyle(
                       // 역 이름이 길면 박스 사이즈를 넘어가서 폰트 사이즈 40->35로 조정했습니다
                       fontSize: 35,
-                      color: Colors.black
+                      color: Theme.of(context).colorScheme.tertiary,
                     ),
                   ),
                 ),

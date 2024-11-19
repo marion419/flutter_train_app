@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 final lightTheme=ThemeData(
   colorScheme: ColorScheme.fromSeed(
     seedColor: Colors.purple,
+    primary: Colors.grey[300],      // 좌석 위젯
+    secondary: Colors.white,        // home_page 역 선택 박스
+    tertiary: Colors.black,         // 텍스트
     brightness: Brightness.light,
   ),
-  primaryColor: Colors.white,
-  dividerColor: Colors.grey[300]!,
+
+  dividerColor: Colors.grey[200]!,  // home_page 배경
   highlightColor: Colors.purple,
 
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -25,10 +28,15 @@ final lightTheme=ThemeData(
 final darkTheme=ThemeData(
   colorScheme: ColorScheme.fromSeed(
     seedColor: Colors.purple,
-    brightness: Brightness.dark,
+    primary: Colors.grey[700],      // 좌석 위젯
+    secondary: Colors.grey[700],    // home_page 역 선택 박스
+    tertiary: Colors.white,         // 텍스트
+    brightness: Brightness.light,
   ),
-  primaryColor: Colors.grey[500],
-  dividerColor: Colors.grey[500],
+
+  scaffoldBackgroundColor: Colors.black,
+
+  dividerColor: Colors.black,       // home_page 배경
   highlightColor: Colors.purple,
 
   elevatedButtonTheme: ElevatedButtonThemeData(

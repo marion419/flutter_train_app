@@ -32,9 +32,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('기차 예매'),
+        title: Text('기차 예매',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.tertiary
+          ),
+        ),
+        backgroundColor: Colors.transparent,
       ),
-
+      backgroundColor: Theme.of(context).dividerColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
@@ -46,11 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    // 출발역 선택
                     SelectDepart('출발역', depart, arrive, onDepartChanged),
                     // 세로 구분선
                     Container(

@@ -21,7 +21,12 @@ class _SeatPageState extends State<SeatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('좌석 선택'),
+        title: Text('좌석 선택',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.tertiary
+          ),
+        ),
+        backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
       body: Padding(
@@ -63,18 +68,26 @@ class _SeatPageState extends State<SeatPage> {
                   ),
                 ),
                 SizedBox(width: 4,),
-                Text('선택됨',),
+                Text('선택됨',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.tertiary
+                  ),
+                ),
                 SizedBox(width: 20,),
                 Container(
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.grey[300]!,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 SizedBox(width: 4,),
-                Text('선택 안 됨'),
+                Text('선택 안 됨',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.tertiary
+                  ),
+                ),
               ],
             ),
             // 행번호

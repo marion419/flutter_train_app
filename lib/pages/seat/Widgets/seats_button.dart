@@ -18,7 +18,7 @@ class _SeatsButtonState extends State<SeatsButton>{
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: isPressed ? Theme.of(context).highlightColor : Theme.of(context).dividerColor,
+        color: isPressed ? Theme.of(context).highlightColor : Theme.of(context).colorScheme.primary,
       ),
       child: TextButton(
         onPressed: (){

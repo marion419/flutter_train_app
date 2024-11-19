@@ -28,6 +28,7 @@ class SeatsRow extends StatelessWidget{
                 Text('$rowNum',
                   style: TextStyle(
                     fontSize: 18,
+                    color: Theme.of(context).colorScheme.tertiary
                   ),
                   textAlign: TextAlign.center,
                 ),
