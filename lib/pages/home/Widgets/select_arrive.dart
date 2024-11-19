@@ -4,9 +4,10 @@ import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 class SelectArrive extends StatelessWidget{
   String direction;
   String station;
+  String depart;
   void Function(String newValue) onArriveChanged;
 
-  SelectArrive(this.direction, this.station, this.onArriveChanged);
+  SelectArrive(this.direction, this.station, this.depart, this.onArriveChanged);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class SelectArrive extends StatelessWidget{
         children: [
           Column(
             children: [
-              Text(direction,
+              Text('도착역',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 16,
@@ -27,14 +28,17 @@ class SelectArrive extends StatelessWidget{
               TextButton(
                 onPressed: () async {
                   final returnStation = await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => StationListPage(direction: direction, station: station,))
+                    MaterialPageRoute(builder: (context) => StationListPage(direction: direction, except: depart,))
                   );
                   onArriveChanged(returnStation);
                 },
-                child: Text(station,
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.black
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(station,
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.black
+                    ),
                   ),
                 ),
               ),

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/seat/seat_page.dart';
-import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 import 'package:flutter_train_app/pages/home/Widgets/select_depart.dart';
 import 'package:flutter_train_app/pages/home/Widgets/select_arrive.dart';
 
@@ -38,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
             //상부 여백
@@ -51,13 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
                 ),
-
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SelectDepart('출발역', depart, onDepartChanged),
+                      SelectDepart('출발역', depart, arrive, onDepartChanged),
                       // 세로 구분선
                       Container(
                         color: Colors.grey[400],
@@ -65,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 50,
                       ),
                       // 도착역 선택
-                      SelectArrive('도착역', arrive, onArriveChanged),
+                      SelectArrive('도착역', arrive, depart, onArriveChanged),
                     ],
                   ),
                 ),
